@@ -14,7 +14,7 @@
 	<div th:replace="fragments/header :: header"></div>
 	<div class="container">
 		<div class="text-center">
-			<img src="/static/shameless.jpg" class="rounded" alt="The imagen could not be loaded">
+			<img th:src="@{/shameless.jpg}" class="rounded" alt="The imagen could not be loaded"> <!- Funcion nueva que añade una imagen con th:src>
 		</div>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>
