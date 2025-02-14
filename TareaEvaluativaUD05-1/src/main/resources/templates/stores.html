@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComicDeepSpace</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	
+	<div class="container">
+		<div class="text-center mt-5">
+	<h1>Stores List</h1>
+	</div>
+		<table class="table table-striped">
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Open Date</th>
+				<th scope="col">Action</th>
+			</tr>
+			<tr th:each="store : ${stores}">
+				<td scope="row" th:text="${store.name}"></td>
+				<td scope="row" th:text="${store.dateOpened}"></td>
+				<td class="actions"><a
+					th:href="@{/stores/edit/{id}(id=${store.id})}"
+					class="btn btn-dark">Edit</a> <a
+					th:href="@{/stores/delete/{id}(id=${store.id})}"
+					class="btn btn-danger">Delete</a></td>
+				
+			</tr>
+		</table>
+		<a type="button" class="btn btn-success" th:href="@{/stores/new}">Add Store</a>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</body>
+</html>
